@@ -1,0 +1,20 @@
+// File name: OperatorPrecedence.java
+public class OperatorPrecedence {
+    public static void main(String[] args) {
+        int result1 = 10 + 5 * 2;
+        System.out.println("Result of 10 + 5 * 2 = " + result1);
+        // Explanation: 5 * 2 = 10, then 10 + 10 = 20
+
+        int result2 = (10 + 5) * 2;
+        System.out.println("Result of (10 + 5) * 2 = " + result2);
+        // Explanation: 10 + 5 = 15, then 15 * 2 = 30
+
+        int result3 = 100 / 10 + 4 * 3 - 2;
+        System.out.println("Result of 100 / 10 + 4 * 3 - 2 = " + result3);
+        // Explanation: 100 / 10 = 10, 4 * 3 = 12, then 10 + 12 - 2 = 20
+
+        int result4 = 10 + 5 - 3 * 2 + 8 / 4;
+        System.out.println("Result of 10 + 5 - 3 * 2 + 8 / 4 = " + result4);
+        // Explanation: 3 * 2 = 6, 8 / 4 = 2, then 10 + 5 - 6 + 2 = 11
+    }
+}
