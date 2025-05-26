@@ -1,1 +1,5 @@
+Enter a string to write to file: Hello, this is a test!
+Data has been written to output.txt
 
+After this, the file output.txt will contain:
+Hello, this is a test!
