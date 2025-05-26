@@ -1,0 +1,4 @@
+Original double value: 9.78
+After casting to int: 9
+Original int value: 42
+After casting to double: 42.0
