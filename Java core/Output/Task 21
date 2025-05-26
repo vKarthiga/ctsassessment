@@ -1,0 +1,6 @@
+Output 1:
+Enter your age: 20
+Age accepted: 20
+Output 2:
+Enter your age: 16
+InvalidAgeException caught: Age must be at least 18.
