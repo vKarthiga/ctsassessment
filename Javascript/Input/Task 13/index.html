@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Community Event Registration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      color: #333;
+    }
+    form {
+      background: white;
+      padding: 20px;
+      max-width: 400px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #28a745;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+    #responseMessage {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Register for an Event</h1>
+
+  <form id="registerForm">
+    <label for="name">Full Name</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="event">Select Event</label>
+    <select id="event" name="event" required>
+      <option value="">-- Choose an Event --</option>
+      <option value="music-fest">Music Festival</option>
+      <option value="baking-workshop">Baking Workshop</option>
+      <option value="tech-meetup">Tech Meetup</option>
+    </select>
+
+    <button type="submit">Register</button>
+    <div id="responseMessage"></div>
+  </form>
+
+  <!-- Link JavaScript file -->
+  <script src="ajax.js"></script>
+
+</body>
+</html>
