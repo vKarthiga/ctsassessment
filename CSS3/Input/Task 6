@@ -1,0 +1,84 @@
+index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Styled Links and Lists</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navigation Menu -->
+  <nav>
+    <ul class="nav-menu">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Event List -->
+  <section id="events">
+    <h2>Upcoming Events</h2>
+    <ul class="event-list">
+      <li>Music Festival - June 15</li>
+      <li>Community Clean-Up - July 5</li>
+      <li>Food Truck Rally - August 10</li>
+    </ul>
+  </section>
+
+</body>
+</html>
+
+styles.css
+
+/* Reset Default Margin & Padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Link Styling */
+a:link {
+  color: #007BFF;
+  text-decoration: none;
+}
+a:visited {
+  color: #5a5a5a;
+}
+a:hover {
+  color: #FF4500;
+  text-decoration: underline;
+}
+a:active {
+  color: #FF0000;
+}
+
+/* Navigation Menu Styling */
+.nav-menu {
+  list-style-type: none;         /* Remove bullets */
+  list-style-position: inside;
+  display: flex;
+  gap: 20px;
+  padding: 15px;
+  background-color: #f0f0f0;
+}
+
+.nav-menu li {
+  padding: 5px 10px;
+}
+
+/* Event List Styling */
+.event-list {
+  list-style-type: square;      /* Change bullet style */
+  list-style-position: outside;
+  margin: 20px;
+  padding-left: 40px;
+}
+
+.event-list li {
+  padding: 8px 0;
+  font-size: 18px;
+}
