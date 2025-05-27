@@ -1,0 +1,4 @@
+Methods in SampleClass:
+- sayHello with parameters: 0
+- greet with parameters: 1
+Hello from SampleClass!
