@@ -1,0 +1,8 @@
+Spring Festival available? true
+Winter Gala available? false
+Event1 properties:
+id: 1
+name: Spring Festival
+date: Sun Jun 15 2025 00:00:00 GMT+0000 (Coordinated Universal Time)
+seats: 10
+category: Festival
