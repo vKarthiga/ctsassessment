@@ -1,0 +1,60 @@
+Project Structure
+project-root/
+├── com.greetings/
+│   ├── module-info.java
+│   └── com/
+│       └── greetings/
+│           └── Main.java
+├── com.utils/
+│   ├── module-info.java
+│   └── com/
+│       └── utils/
+│           └── MessageUtil.java
+
+Step1. Module: com.utils
+
+com.utils/module-info.java
+module com.utils {
+    exports com.utils;
+}
+
+com/utils/MessageUtil.java
+package com.utils;
+public class MessageUtil {
+    public static String getMessage() {
+        return "Hello from the utility module!";
+    }
+}
+
+Step2. Module: com.greetings
+com.greetings/module-info.java
+module com.greetings {
+    requires com.utils;
+}
+
+com/greetings/Main.java
+package com.greetings;
+
+import com.utils.MessageUtil;
+
+public class Main {
+    public static void main(String[] args) {
+        System.out.println(MessageUtil.getMessage());
+    }
+}
+Step3. Compile and Run (Using Terminal)
+Navigate to the project root and run:
+
+# Step 1: Compile com.utils
+javac -d out/com.utils \
+      com.utils/module-info.java \
+      com/utils/MessageUtil.java
+
+# Step 2: Compile com.greetings using the module path
+javac -d out/com.greetings \
+      --module-path out \
+      com.greetings/module-info.java \
+      com/greetings/Main.java
+
+# Step 3: Run the program
+java --module-path out -m com.greetings/com.greetings.Main
