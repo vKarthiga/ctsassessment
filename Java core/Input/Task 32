@@ -1,0 +1,72 @@
+students.db file
+CREATE TABLE students (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    grade INTEGER
+);
+
+StudentDAO Class
+import java.sql.*;
+
+public class StudentDAO {
+    private Connection connect() {
+        String url = "jdbc:sqlite:students.db";
+        Connection conn = null;
+        try {
+            conn = DriverManager.getConnection(url);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return conn;
+    }
+
+    // Insert new student
+    public void insertStudent(String name, int grade) {
+        String sql = "INSERT INTO students(name, grade) VALUES(?, ?)";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            
+            pstmt.setString(1, name);
+            pstmt.setInt(2, grade);
+            pstmt.executeUpdate();
+            System.out.println("Inserted student: " + name);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    // Update existing student's grade by ID
+    public void updateStudentGrade(int id, int newGrade) {
+        String sql = "UPDATE students SET grade = ? WHERE id = ?";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setInt(1, newGrade);
+            pstmt.setInt(2, id);
+            int rows = pstmt.executeUpdate();
+            if (rows > 0) {
+                System.out.println("Updated grade for student ID: " + id);
+            } else {
+                System.out.println("Student ID not found.");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
+Main Class to Test
+public class Main {
+    public static void main(String[] args) {
+        StudentDAO dao = new StudentDAO();
+
+        // Insert students
+        dao.insertStudent("Diana", 88);
+        dao.insertStudent("Ethan", 76);
+
+        // Update grade
+        dao.updateStudentGrade(1, 90); // Update student with ID 1
+    }
+}
+
