@@ -1,0 +1,67 @@
+Step 1: Accounts Table SQL
+
+Create a bank.db SQLite database with an accounts table:
+CREATE TABLE accounts (
+    id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL,
+    balance REAL NOT NULL
+);
+
+Insert some sample data:
+INSERT INTO accounts (id, name, balance) VALUES (1, 'Alice', 1000.0);
+INSERT INTO accounts (id, name, balance) VALUES (2, 'Bob', 500.0);
+
+Step 2: BankDAO with Transaction Logic
+import java.sql.*;
+
+public class BankDAO {
+    private Connection connect() throws SQLException {
+        String url = "jdbc:sqlite:bank.db";
+        return DriverManager.getConnection(url);
+    }
+
+    public void transferMoney(int fromId, int toId, double amount) {
+        String debitSQL = "UPDATE accounts SET balance = balance - ? WHERE id = ?";
+        String creditSQL = "UPDATE accounts SET balance = balance + ? WHERE id = ?";
+
+        try (Connection conn = connect()) {
+            conn.setAutoCommit(false); // Start transaction
+
+            try (
+                PreparedStatement debitStmt = conn.prepareStatement(debitSQL);
+                PreparedStatement creditStmt = conn.prepareStatement(creditSQL)
+            ) {
+                // Debit from sender
+                debitStmt.setDouble(1, amount);
+                debitStmt.setInt(2, fromId);
+                debitStmt.executeUpdate();
+
+                // Credit to receiver
+                creditStmt.setDouble(1, amount);
+                creditStmt.setInt(2, toId);
+                creditStmt.executeUpdate();
+
+                conn.commit(); // Commit if both succeed
+                System.out.println("Transfer successful.");
+            } catch (SQLException e) {
+                conn.rollback(); // Rollback on error
+                System.out.println("Transfer failed. Transaction rolled back.");
+                e.printStackTrace();
+            } finally {
+                conn.setAutoCommit(true); // Restore auto-commit
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+Step 3: Main Class
+public class Main {
+    public static void main(String[] args) {
+        BankDAO dao = new BankDAO();
+
+        // Transfer 200 from Alice (id=1) to Bob (id=2)
+        dao.transferMoney(1, 2, 200.0);
+    }
+}
