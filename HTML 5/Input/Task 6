@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Feedback</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+
+    label, select, input, textarea, button {
+      display: block;
+      margin-top: 15px;
+      width: 300px;
+      padding: 8px;
+    }
+
+    #eventImage {
+      width: 200px;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    #feeDisplay, #charCount, #confirmMessage {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    #confirmMessage {
+      color: green;
+    }
+
+    .error {
+      border: 2px solid red;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Event Feedback</h2>
+
+  <form id="feedbackForm" onsubmit="event.preventDefault(); showConfirmation();">
+
+    <label for="phone">Phone Number:</label>
+    <input type="text" id="phone" placeholder="Enter 10-digit number" onblur="validatePhone()">
+
+    <label for="eventType">Select Event:</label>
+    <select id="eventType" onchange="showFee()">
+      <option value="">--Choose an Event--</option>
+      <option value="Music Festival" data-fee="100">Music Festival</option>
+      <option value="Art Exhibition" data-fee="50">Art Exhibition</option>
+      <option value="Food Carnival" data-fee="75">Food Carnival</option>
+    </select>
+
+    <div id="feeDisplay"></div>
+
+    <label for="feedback">Your Feedback:</label>
+    <textarea id="feedback" rows="4" placeholder="Type your comments..." onkeyup="countCharacters()"></textarea>
+    <div id="charCount">Characters: 0</div>
+
+    <button type="submit" onclick="showConfirmation()">Submit Feedback</button>
+    <div id="confirmMessage"></div>
+  </form>
+
+  <h3>Event Poster</h3>
+  <img id="eventImage" src="https://source.unsplash.com/200x150/?community,event" alt="Event Image" ondblclick="enlargeImage(this)">
+
+  <script>
+    function validatePhone() {
+      const phone = document.getElementById('phone');
+      const phoneVal = phone.value;
+      const regex = /^\d{10}$/;
+      if (!regex.test(phoneVal)) {
+        phone.classList.add('error');
+        alert("Invalid phone number. Please enter exactly 10 digits.");
+      } else {
+        phone.classList.remove('error');
+      }
+    }
+
+    function showFee() {
+      const select = document.getElementById('eventType');
+      const selectedOption = select.options[select.selectedIndex];
+      const fee = selectedOption.getAttribute('data-fee');
+      document.getElementById('feeDisplay').textContent = fee ? `Event Fee: ₹${fee}` : '';
+    }
+
+    function countCharacters() {
+      const text = document.getElementById('feedback').value;
+      document.getElementById('charCount').textContent = `Characters: ${text.length}`;
+    }
+
+    function showConfirmation() {
+      document.getElementById('confirmMessage').textContent = "Thank you! Your feedback has been submitted.";
+    }
+
+    function enlargeImage(img) {
+      img.style.transform = img.style.transform === "scale(1.5)" ? "scale(1)" : "scale(1.5)";
+    }
+  </script>
+
+</body>
+</html>
