@@ -1,0 +1,82 @@
+index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Admin Table</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <h2>Event Admin Table</h2>
+  <table class="event-table">
+    <thead>
+      <tr>
+        <th>Event Name</th>
+        <th>Date</th>
+        <th>Location</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Music Fest</td>
+        <td>2025-06-15</td>
+        <td>Central Park</td>
+        <td>Confirmed</td>
+      </tr>
+      <tr>
+        <td>Cleanup Drive</td>
+        <td>2025-07-10</td>
+        <td>Riverside</td>
+        <td>Pending</td>
+      </tr>
+      <tr>
+        <td>Food Fair</td>
+        <td>2025-08-20</td>
+        <td>Community Center</td>
+        <td>Confirmed</td>
+      </tr>
+      <tr>
+        <td>Book Exchange</td>
+        <td>2025-09-01</td>
+        <td>Library Hall</td>
+        <td>Scheduled</td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+</html>
+
+styles.css
+
+/* Table Styles */
+.event-table {
+  width: 90%;
+  margin: 30px auto;
+  border-collapse: collapse;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+/* Header Row */
+.event-table th {
+  background-color: #007BFF;
+  color: white;
+  padding: 12px;
+  border: 1px solid #ccc;
+}
+
+/* Table Data Cells */
+.event-table td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+}
+
+/* Zebra Striping */
+.event-table tbody tr:nth-child(even) {
+  background-color: #e6f2ff;
+}
