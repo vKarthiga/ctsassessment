@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Debugging Example</title>
+  <style>
+    #box {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Event Debugging</h1>
+
+  <input id="nameInput" type="text" placeholder="Enter your name">
+  <button onclick="greetUser()">Greet</button>
+
+  <div id="box" ondblclick="enlargeBox()"></div>
+
+  <script>
+    function greetUser() {
+      const name = document.getElementById('nameInput').value;
+      console.log("User name is: " + name);
+      alert("Hello, " + name + "!");
+    }
+
+    function enlargeBox() {
+      const box = document.getElementById('box');
+      box.style.width = "200px";
+      box.style.height = "200px";
+    }
+
+    // Example error for debugging
+    function buggyFunction() {
+      console.log(undefinedVariable); // ReferenceError
+    }
+
+    buggyFunction(); // Will log error in console
+  </script>
+</body>
+</html>
