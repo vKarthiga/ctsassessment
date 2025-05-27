@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Community Event Gallery</title>
+  <style>
+    .event-img {
+      border: 2px solid #555;
+      border-radius: 8px;
+      width: 150px;
+      height: 100px;
+      object-fit: cover;
+      margin: 5px;
+    }
+    table {
+      margin: 20px auto;
+      border-collapse: collapse;
+    }
+    caption {
+      font-weight: bold;
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2 style="text-align: center;">Past Community Events</h2>
+
+  <table>
+    <caption>Snapshots from Previous Events</caption>
+    <tr>
+      <td><img src="https://picsum.photos/id/1015/150/100" alt="Music Fest" title="Music Fest 2024" class="event-img"></td>
+      <td><img src="https://picsum.photos/id/1020/150/100" alt="Food Carnival" title="Food Carnival 2024" class="event-img"></td>
+      <td><img src="https://picsum.photos/id/1033/150/100" alt="Art Exhibition" title="Art Exhibition 2024" class="event-img"></td>
+    </tr>
+    <tr>
+      <td><img src="https://picsum.photos/id/1044/150/100" alt="Yoga Session" title="Morning Yoga 2024" class="event-img"></td>
+      <td><img src="https://picsum.photos/id/1050/150/100" alt="Cultural Parade" title="Parade 2024" class="event-img"></td>
+      <td><img src="https://picsum.photos/id/1062/150/100" alt="Tech Fair" title="Tech Fair 2024" class="event-img"></td>
+    </tr>
+  </table>
+
+</body>
+</html>
