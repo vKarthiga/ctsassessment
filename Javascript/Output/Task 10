@@ -1,0 +1,14 @@
+📅 Music Fest on 2025-06-10 has 20 seats.
+📅 Coding Bootcamp on 2025-06-05 has 0 seats.
+📅 Food Carnival on 2025-06-15 has 10 seats.
+🎵 Music Events: [
+  {
+    id: 1,
+    name: 'Music Fest',
+    category: 'music',
+    seats: 20,
+    date: '2025-06-10'
+  }
+]
+🎟️ Total seats for music events: 20
+Guest is registering for event #1
