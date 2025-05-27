@@ -1,0 +1,17 @@
+Step 1: Write and compile a Java class
+Hello.java:
+public class Hello {
+    public static void main(String[] args) {
+        System.out.println("Hello, Decompiler!");
+    }
+}
+
+Compile it:
+javac Hello.java
+
+Step 2: Decompile the .class file
+Use a Java decompiler like:
+
+JD-GUI (GUI tool)
+
+CFR (command line: java -jar cfr.jar Hello.class)
