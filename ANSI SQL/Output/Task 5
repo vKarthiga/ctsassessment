@@ -1,0 +1,5 @@
+| city        | distinct_user_registrations   |
+| ----------- | ----------------------------- |
+| New York    | 2                             |
+| Los Angeles | 2                             |
+| Chicago     | 1                             |
