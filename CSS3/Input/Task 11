@@ -1,0 +1,114 @@
+index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Local Community Event Portal</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <nav id="mainNav">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <section id="home">
+      <h1>Welcome to the Community Portal</h1>
+      <p>This portal helps you find and register for local events.</p>
+    </section>
+
+    <section id="events">
+      <h2>Upcoming Events</h2>
+      <p>Stay tuned for the latest events near you.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>Get in touch for more info.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+styles.css
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Navigation styles */
+nav#mainNav {
+  background-color: #004080;
+  padding: 10px;
+}
+
+nav#mainNav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav#mainNav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Responsive: stack nav vertically on small screens */
+@media (max-width: 768px) {
+  nav#mainNav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Section styling */
+section {
+  padding: 20px;
+  margin: 10px auto;
+  max-width: 800px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Debug highlight outline for form fields (example) */
+input:focus, select:focus, textarea:focus {
+  outline: 3px solid #007BFF;
+}
+
+script.js
+
+// Log page load
+console.log('Page loaded successfully.');
+
+// Example: Log navigation clicks for debugging
+document.querySelectorAll('nav#mainNav a').forEach(link => {
+  link.addEventListener('click', event => {
+    console.log(`Navigation clicked: ${event.target.textContent}`);
+  });
+});
+
+// Example breakpoint line:
+// debugger;  <-- You can uncomment this to pause execution when this script runs
+
+// Add event listener to window before unload (for testing in console)
+window.addEventListener('beforeunload', function (e) {
+  console.log('User is trying to leave the page.');
+  // To show confirmation dialog (some browsers limit this behavior)
+  // e.preventDefault();
+  // e.returnValue = '';
+});
