@@ -1,0 +1,85 @@
+Step1. Server Code (ChatServer.java)
+import java.io.*;
+import java.net.*;
+
+public class ChatServer {
+    public static void main(String[] args) {
+        try (ServerSocket serverSocket = new ServerSocket(12345)) {
+            System.out.println("Server started. Waiting for client...");
+            Socket socket = serverSocket.accept();
+            System.out.println("Client connected.");
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            PrintWriter writer = new PrintWriter(socket.getOutputStream(), true);
+            BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
+
+            Thread receiveThread = new Thread(() -> {
+                String messageFromClient;
+                try {
+                    while ((messageFromClient = reader.readLine()) != null) {
+                        System.out.println("Client: " + messageFromClient);
+                    }
+                } catch (IOException e) {
+                    System.out.println("Connection closed.");
+                }
+            });
+            receiveThread.start();
+
+            String messageToClient;
+            while ((messageToClient = console.readLine()) != null) {
+                writer.println(messageToClient);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+Step2. Client Code (ChatClient.java)
+
+import java.io.*;
+import java.net.*;
+
+public class ChatClient {
+    public static void main(String[] args) {
+        try (Socket socket = new Socket("localhost", 12345)) {
+            System.out.println("Connected to server.");
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            PrintWriter writer = new PrintWriter(socket.getOutputStream(), true);
+            BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
+
+            Thread receiveThread = new Thread(() -> {
+                String messageFromServer;
+                try {
+                    while ((messageFromServer = reader.readLine()) != null) {
+                        System.out.println("Server: " + messageFromServer);
+                    }
+                } catch (IOException e) {
+                    System.out.println("Connection closed.");
+                }
+            });
+            receiveThread.start();
+
+            String messageToServer;
+            while ((messageToServer = console.readLine()) != null) {
+                writer.println(messageToServer);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+Step3.How to Run
+
+In Terminal 1: Compile
+javac ChatServer.java ChatClient.java
+
+In Terminal 2: Run the Server
+java ChatServer
+
+In Terminal 3: Run the Client
+java ChatClient
