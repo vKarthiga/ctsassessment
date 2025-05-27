@@ -1,0 +1,70 @@
+index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Card Layout</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <section class="eventCard">
+    <h3>Food Carnival</h3>
+    <p>Join us for a fun-filled day of food, games, and music!</p>
+  </section>
+
+  <form>
+    <label for="name">Name:</label>
+    <input type="text" id="name" class="form-input" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" class="form-input" required>
+
+    <br><br>
+    <input type="submit" value="Register">
+  </form>
+
+  <div class="hidden-box">This is hidden using <code>visibility: hidden</code></div>
+  <div class="none-box">This is removed using <code>display: none</code></div>
+
+</body>
+</html>
+
+styles.css
+
+/* Box Model Styling for Event Card */
+.eventCard {
+  border: 2px solid #007BFF;
+  padding: 20px;
+  margin: 30px;
+  background-color: #f1faff;
+  border-radius: 8px;
+}
+
+/* Outline for form inputs */
+.form-input {
+  padding: 8px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  outline: 2px solid transparent;
+}
+
+.form-input:focus {
+  outline: 2px solid #28a745;
+}
+
+/* Visibility vs Display */
+.hidden-box {
+  visibility: hidden; /* takes up space but is invisible */
+  background-color: lightcoral;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.none-box {
+  display: none; /* does not take up any space */
+  background-color: lightblue;
+  padding: 10px;
+  margin: 10px 0;
+}
