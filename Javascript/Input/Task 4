@@ -1,0 +1,68 @@
+// Event list (initial)
+const events = [
+  { id: 1, name: "Spring Festival", date: "2025-06-15", seats: 10, category: "Festival" },
+  { id: 2, name: "Winter Gala", date: "2024-12-01", seats: 5, category: "Gala" },
+  { id: 3, name: "Summer Picnic", date: "2025-08-10", seats: 20, category: "Picnic" },
+];
+
+// 1. addEvent() - adds a new event to the list
+function addEvent(newEvent) {
+  events.push(newEvent);
+  console.log(`Event "${newEvent.name}" added.`);
+}
+
+// 2. registerUser() - registers a user for an event by reducing seat count
+function registerUser(eventId) {
+  const event = events.find(e => e.id === eventId);
+  if (!event) {
+    console.error("Event not found.");
+    return false;
+  }
+  if (event.seats <= 0) {
+    console.error(`No seats available for "${event.name}".`);
+    return false;
+  }
+  event.seats--;
+  console.log(`User registered for "${event.name}". Seats left: ${event.seats}`);
+  return true;
+}
+
+// 3. filterEventsByCategory() - higher-order function that accepts a callback for dynamic filtering
+function filterEventsByCategory(callback) {
+  return events.filter(callback);
+}
+
+// Closure to track total registrations per category
+function createRegistrationTracker() {
+  const registrations = {};
+
+  return {
+    register(category) {
+      registrations[category] = (registrations[category] || 0) + 1;
+      console.log(`Registered in category "${category}". Total now: ${registrations[category]}`);
+    },
+    getTotal(category) {
+      return registrations[category] || 0;
+    }
+  };
+}
+
+// Usage examples:
+
+// Add a new event
+addEvent({ id: 4, name: "Autumn Fair", date: "2025-10-20", seats: 15, category: "Fair" });
+
+// Register user tracker instance
+const tracker = createRegistrationTracker();
+
+// Register some users
+if (registerUser(1)) tracker.register("Festival");
+if (registerUser(2)) tracker.register("Gala");
+if (registerUser(1)) tracker.register("Festival");
+
+// Filter events by a callback (e.g., category is 'Festival')
+const festivalEvents = filterEventsByCategory(e => e.category === "Festival");
+console.log("Festival Events:", festivalEvents);
+
+// Get total registrations for "Festival"
+console.log("Total registrations for Festival:", tracker.getTotal("Festival"));
