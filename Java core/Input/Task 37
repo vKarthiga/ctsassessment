@@ -1,0 +1,22 @@
+Step 1:Create a Java class
+
+Create a file named SimpleClass.java:
+public class SimpleClass {
+    public void greet() {
+        System.out.println("Hello from SimpleClass!");
+    }
+
+    public static void main(String[] args) {
+        SimpleClass sc = new SimpleClass();
+        sc.greet();
+    }
+}
+
+Step 2: Compile the class
+Run:
+javac SimpleClass.java
+This produces SimpleClass.class.
+
+Step 3: Inspect bytecode using javap
+Run:
+javap -c SimpleClass
