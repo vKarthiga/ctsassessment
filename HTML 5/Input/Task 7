@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Video Invite</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f0f8ff;
+    }
+
+    #videoMessage {
+      margin-top: 10px;
+      font-weight: bold;
+      color: green;
+    }
+
+    form {
+      margin-top: 30px;
+    }
+
+    input, textarea {
+      display: block;
+      margin: 10px 0;
+      padding: 8px;
+      width: 300px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🎥 Event Promo Video</h2>
+
+  <video id="promoVideo" width="480" controls oncanplay="showVideoReadyMessage()">
+    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div id="videoMessage"></div>
+
+  <form id="eventForm">
+    <h3>Register Your Interest</h3>
+    <label>Name:</label>
+    <input type="text" id="name" required>
+
+    <label>Email:</label>
+    <input type="email" id="email" required>
+
+    <label>Why are you interested?</label>
+    <textarea id="message" required></textarea>
+
+    <input type="submit" value="Submit">
+  </form>
+
+  <script>
+    let formChanged = false;
+
+    document.getElementById('eventForm').addEventListener('input', () => {
+      formChanged = true;
+    });
+
+    function showVideoReadyMessage() {
+      document.getElementById('videoMessage').textContent = "✅ Video ready to play!";
+    }
+
+    window.onbeforeunload = function () {
+      if (formChanged) {
+        return "You have unsaved changes. Are you sure you want to leave?";
+      }
+    };
+  </script>
+
+</body>
+</html>
