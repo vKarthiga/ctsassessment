@@ -1,0 +1,5 @@
+| event_id  | avg_session_duration_minutes    |                              |
+| --------- | ------------------------------- | ---------------------------- |
+| 1         | 67.5                            | *(Sessions: 60 and 75 mins)* |
+| 2         | 90                              | *(One session: 90 mins)*     |
+| 3         | 120                             | *(One session: 120 mins)*    |
