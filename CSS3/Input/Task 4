@@ -1,0 +1,74 @@
+index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>City Event Portal</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header>
+    <h1>Welcome to Springfield's Community Events</h1>
+  </header>
+
+  <section class="intro">
+    <p>Stay updated with events, activities, and community news.</p>
+  </section>
+
+  <section class="event-section">
+    <h2>Featured Events</h2>
+    <div class="event-card">Music Festival at Riverside Park</div>
+    <div class="event-card">Art and Craft Expo at City Hall</div>
+  </section>
+
+</body>
+</html>
+
+styles.css
+
+/* Background image with fallback color */
+body {
+  background-color: #e0f7fa; /* Fallback */
+  background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d');
+  background-size: cover;
+  background-position: center;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+/* Header with linear gradient */
+header h1 {
+  padding: 20px;
+  text-align: center;
+  color: white;
+  background: linear-gradient(90deg, #004080, #007BFF);
+}
+
+/* Section text with RGBA background */
+.intro {
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+  color: #004080;
+}
+
+/* Section header with gradient */
+.event-section h2 {
+  padding: 10px;
+  color: white;
+  background: linear-gradient(to right, #ff6f61, #ffb74d);
+  text-align: center;
+}
+
+/* Event card styling with HEX colors */
+.event-card {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  margin: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  color: #2e2e2e;
+}
