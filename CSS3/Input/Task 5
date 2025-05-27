@@ -1,0 +1,82 @@
+index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Community Event Portal</title>
+
+  <!-- Include Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header>
+    <h1>Welcome to Our City Events</h1>
+  </header>
+
+  <section class="intro-text">
+    <p>Join us in making our community vibrant with exciting events and meaningful participation.</p>
+  </section>
+
+  <section class="description">
+    <h2>Why Attend?</h2>
+    <p>
+      Our events are fun, inclusive, and informative. Whether it's a music night, clean-up drive,
+      or tech workshop — we have something for everyone!
+    </p>
+  </section>
+
+</body>
+</html>
+
+styles.css
+
+/* General Body Styling */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f7f9fc;
+  color: #333;
+  padding: 20px;
+}
+
+/* Header Typography */
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 700;
+  font-style: italic;
+  text-align: center;
+  color: #00529b;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+}
+
+/* Intro Paragraph Styling */
+.intro-text p {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.6;
+  text-align: justify;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+/* Description Section */
+.description h2 {
+  font-size: 24px;
+  text-transform: capitalize;
+  color: #ff6f00;
+}
+
+.description p {
+  font-size: 16px;
+  line-height: 1.8;
+  letter-spacing: 0.5px;
+  font-style: normal;
+  color: #555;
+  text-align: left;
+}
