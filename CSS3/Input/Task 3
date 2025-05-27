@@ -1,0 +1,81 @@
+index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Community Event Portal</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ID Selector -->
+  <div id="mainHeader">Welcome to the Community Event Portal</div>
+
+  <!-- Element Selector -->
+  <h2>Upcoming Events</h2>
+
+  <!-- Class Selector and Grouping Selector -->
+  <div class="eventCard">
+    <h3>Music Festival</h3>
+    <p>Live music, food trucks, and games at Central Park.</p>
+  </div>
+
+  <div class="eventCard">
+    <h3>Art Exhibition</h3>
+    <p>Showcasing local talent at the Community Hall.</p>
+  </div>
+
+</body>
+</html>
+
+styles.css
+/* ----------------------------
+   Universal Selector Reset
+----------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ----------------------------
+   Element Selector for all <h2>
+----------------------------- */
+h2 {
+  color: #004080;
+  font-size: 2rem;
+  margin: 20px;
+}
+
+/* ----------------------------
+   ID Selector for Banner Header
+----------------------------- */
+#mainHeader {
+  background-color: #007BFF;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+/* ----------------------------
+   Class Selector for Event Cards
+----------------------------- */
+.eventCard {
+  background-color: #f9f9f9;
+  padding: 15px;
+  margin: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* ----------------------------
+   Grouping Selector for h3 and p
+----------------------------- */
+h3, p {
+  color: #333;
+  font-family: 'Segoe UI', sans-serif;
+  margin-bottom: 10px;
+}
