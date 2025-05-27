@@ -1,0 +1,39 @@
+import java.lang.reflect.Method;
+
+public class ReflectionExample {
+
+    public static void main(String[] args) {
+        try {
+            // Load the class by name
+            Class<?> clazz = Class.forName("SampleClass");
+
+            // Create an instance of the class
+            Object obj = clazz.getDeclaredConstructor().newInstance();
+
+            // Get all declared methods and print their names and parameters
+            Method[] methods = clazz.getDeclaredMethods();
+            System.out.println("Methods in " + clazz.getName() + ":");
+            for (Method method : methods) {
+                System.out.println("- " + method.getName() + " with parameters: " + method.getParameterCount());
+            }
+
+            // Invoke a specific method by name (e.g., sayHello with no parameters)
+            Method method = clazz.getDeclaredMethod("sayHello");
+            method.invoke(obj);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+// SampleClass to be loaded and used via reflection
+class SampleClass {
+    public void sayHello() {
+        System.out.println("Hello from SampleClass!");
+    }
+
+    public void greet(String name) {
+        System.out.println("Hello, " + name);
+    }
+}
