@@ -1,0 +1,36 @@
+// Event class (reuse from before)
+class Event {
+  constructor(id, name, date, seats, category) {
+    this.id = id;
+    this.name = name;
+    this.date = new Date(date);
+    this.seats = seats;
+    this.category = category;
+  }
+}
+
+// Initial array of events
+let events = [
+  new Event(1, "Music Concert", "2025-06-15", 50, "Music"),
+  new Event(2, "Baking Workshop", "2025-07-01", 20, "Workshop"),
+  new Event(3, "Art Exhibition", "2025-05-20", 30, "Art"),
+];
+
+// 1. Add a new event using push()
+events.push(new Event(4, "Jazz Night", "2025-08-10", 40, "Music"));
+
+// 2. Filter only music events
+const musicEvents = events.filter(event => event.category === "Music");
+
+// 3. Use map() to format display cards
+const displayCards = events.map(event => `${event.category} - "${event.name}"`);
+
+// Logging results
+console.log("All Events:");
+console.table(events);
+
+console.log("Music Events:");
+console.table(musicEvents);
+
+console.log("Display Cards:");
+displayCards.forEach(card => console.log(card));
