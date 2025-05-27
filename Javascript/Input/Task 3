@@ -1,0 +1,47 @@
+// Sample event list with event details
+const events = [
+  { name: "Spring Festival", date: "2025-06-15", seats: 10 },
+  { name: "Winter Gala", date: "2024-12-01", seats: 0 },     // full event
+  { name: "Summer Picnic", date: "2023-08-10", seats: 5 },   // past event (assuming today > Aug 10, 2023)
+];
+
+// Function to check if event date is in the future
+function isUpcoming(dateStr) {
+  const today = new Date();
+  const eventDate = new Date(dateStr);
+  return eventDate >= today;
+}
+
+// Filter and display only valid events (upcoming with seats available)
+console.log("Upcoming events with available seats:");
+
+events.forEach(event => {
+  if (isUpcoming(event.date) && event.seats > 0) {
+    console.log(`- ${event.name} on ${event.date} (Seats left: ${event.seats})`);
+  } else {
+    console.log(`Skipping ${event.name} (past or full)`);
+  }
+});
+
+// Registration function with error handling
+function register(eventName) {
+  try {
+    const event = events.find(e => e.name === eventName);
+    if (!event) throw new Error("Event not found");
+    if (!isUpcoming(event.date)) throw new Error("Event has already passed");
+    if (event.seats <= 0) throw new Error("No seats available");
+
+    // Register user: reduce seats
+    event.seats--;
+    console.log(`Registration successful for ${event.name}. Seats left: ${event.seats}`);
+
+  } catch (error) {
+    console.error(`Registration failed: ${error.message}`);
+  }
+}
+
+// Test registrations
+register("Spring Festival");  // Should succeed
+register("Winter Gala");      // Should fail - full event
+register("Summer Picnic");    // Should fail if past
+register("Nonexistent Event"); // Should fail - no such event
