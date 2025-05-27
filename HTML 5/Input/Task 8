@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Save Event Preferences</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    label, select, button {
+      display: block;
+      margin: 10px 0;
+      font-size: 16px;
+    }
+
+    #status {
+      margin-top: 15px;
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🎯 Choose Your Preferred Event Type</h2>
+
+  <label for="eventType">Select Event Type:</label>
+  <select id="eventType">
+    <option value="">-- Choose an event --</option>
+    <option value="Music">Music</option>
+    <option value="Art">Art</option>
+    <option value="Technology">Technology</option>
+    <option value="Sports">Sports</option>
+  </select>
+
+  <button onclick="savePreference()">Save Preference</button>
+  <button onclick="clearPreferences()">Clear Preferences</button>
+
+  <div id="status"></div>
+
+  <script>
+    const eventTypeSelect = document.getElementById('eventType');
+    const statusDiv = document.getElementById('status');
+
+    // Load preference on page load
+    window.onload = () => {
+      const savedEvent = localStorage.getItem('preferredEvent');
+      if (savedEvent) {
+        eventTypeSelect.value = savedEvent;
+        statusDiv.textContent = `🎉 Welcome back! Your saved preference is "${savedEvent}"`;
+      }
+    };
+
+    // Save to localStorage
+    function savePreference() {
+      const selectedEvent = eventTypeSelect.value;
+      if (selectedEvent) {
+        localStorage.setItem('preferredEvent', selectedEvent);
+        sessionStorage.setItem('tempSession', 'This is a test value'); // Optional
+        statusDiv.textContent = `✅ Saved: "${selectedEvent}" as your preference.`;
+      } else {
+        statusDiv.textContent = "⚠️ Please select an event type before saving.";
+      }
+    }
+
+    // Clear localStorage and sessionStorage
+    function clearPreferences() {
+      localStorage.removeItem('preferredEvent');
+      sessionStorage.clear();
+      eventTypeSelect.value = "";
+      statusDiv.textContent = "🗑 Preferences cleared successfully.";
+    }
+  </script>
+
+</body>
+</html>
