@@ -1,0 +1,20 @@
+// Use const for event name and date (constants)
+const eventName = "Spring Festival";
+const eventDate = "2025-06-15";
+
+// Use let for available seats (variable)
+let availableSeats = 100;
+
+// Display event info using template literals
+console.log(`Event: ${eventName}`);
+console.log(`Date: ${eventDate}`);
+console.log(`Seats Available: ${availableSeats}`);
+
+// Simulate a user registering for the event
+console.log("Registering a user...");
+
+// Decrement available seats by 1 when a user registers
+availableSeats--;
+
+// Display updated seats after registration
+console.log(`Seats Available after registration: ${availableSeats}`);
