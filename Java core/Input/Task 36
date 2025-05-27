@@ -1,0 +1,55 @@
+Step1.HTTP Client Example in Java 11+
+
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+
+public class HttpClientExample {
+    public static void main(String[] args) {
+        try {
+            // Create HttpClient
+            HttpClient client = HttpClient.newHttpClient();
+
+            // Create HttpRequest for GitHub API (fetching user info for 'octocat')
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(new URI("https://api.github.com/users/octocat"))
+                    .GET()
+                    .build();
+
+            // Send request and get HttpResponse
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+            // Print status code
+            System.out.println("Status Code: " + response.statusCode());
+
+            // Print response body
+            System.out.println("Response Body:\n" + response.body());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+Optional: Parsing JSON using Gson
+If you want to parse the JSON response, here’s a brief example:
+
+Add Gson dependency (if using Maven):
+<dependency>
+    <groupId>com.google.code.gson</groupId>
+    <artifactId>gson</artifactId>
+    <version>2.10.1</version>
+</dependency>
+
+Sample code to parse the JSON:
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+...
+String responseBody = response.body();
+JsonObject jsonObject = JsonParser.parseString(responseBody).getAsJsonObject();
+String login = jsonObject.get("login").getAsString();
+String url = jsonObject.get("html_url").getAsString();
+
+System.out.println("Login: " + login);
+System.out.println("Profile URL: " + url);
