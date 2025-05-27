@@ -1,0 +1,17 @@
+Event "Autumn Fair" added.
+User registered for "Spring Festival". Seats left: 9
+Registered in category "Festival". Total now: 1
+User registered for "Winter Gala". Seats left: 4
+Registered in category "Gala". Total now: 1
+User registered for "Spring Festival". Seats left: 8
+Registered in category "Festival". Total now: 2
+Festival Events: [
+  {
+    id: 1,
+    name: 'Spring Festival',
+    date: '2025-06-15',
+    seats: 8,
+    category: 'Festival'
+  }
+]
+Total registrations for Festival: 2
