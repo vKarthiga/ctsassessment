@@ -1,0 +1,10 @@
+Server Terminal:
+Server started. Waiting for client...
+Client connected.
+Client: Hello Server!
+Server: Hi Client!
+
+Client Terminal:
+Connected to server.
+Server: Hi Client!
+Client: Hello Server!
