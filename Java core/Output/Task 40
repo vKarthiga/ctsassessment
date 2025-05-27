@@ -1,0 +1,7 @@
+Hello from virtual thread 1
+Hello from virtual thread 2
+Hello from virtual thread 3
+...
+Hello from virtual thread 99999
+Hello from virtual thread 100000
+Total time for virtual threads: 1200 ms
