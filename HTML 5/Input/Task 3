@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome Banner</title>
+  <style>
+    /* Styling for the welcome banner using ID selector */
+    #welcomeBanner {
+      background-color: #007BFF;
+      color: white;
+      padding: 20px;
+      font-size: 1.5em;
+      text-align: center;
+    }
+
+    /* Styling for elements with the 'highlight' class */
+    .highlight {
+      background-color: grey;
+      font-weight: bold;
+      padding: 2px 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Welcome Banner -->
+  <div id="welcomeBanner">
+    Welcome back, <span class="highlight">Karthiga</span>!
+    <br>
+    <span style="color: red; font-weight: bold;">Special Offer:</span> Register for 2 events and get 1 free!
+  </div>
+
+  <!-- Some content with highlighted class -->
+  <p>Don’t miss the <span class="highlight">Community Yoga Session</span> this weekend.</p>
+  <p>Explore the <span class="highlight">Cultural Fest</span> with music, food, and games!</p>
+
+</body>
+</html>
