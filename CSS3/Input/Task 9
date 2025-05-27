@@ -1,0 +1,48 @@
+index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Community Bulletin</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <section class="bulletin">
+    <h2>Community News</h2>
+    <div class="news-columns">
+      <p>
+        The city council has announced a series of events this weekend, including live music,
+        a farmer’s market, and a public art exhibit. Residents are encouraged to attend
+        and participate in community-building activities.
+      </p>
+      <p>
+        Volunteers are also needed for cleanup and hospitality booths. Signups are open
+        on the city’s event portal. Free refreshments and community t-shirts will be available
+        for all volunteers.
+      </p>
+      <p>
+        New walking trails are being proposed near the Riverside Park area. Feedback
+        from residents is welcome during next week’s town hall meeting.
+      </p>
+    </div>
+  </section>
+
+</body>
+</html>
+
+styles.css
+
+/* Multi-Column Layout for News Bulletin */
+.news-columns {
+  column-count: 2;
+  column-gap: 30px;
+  column-rule: 1px solid gray;
+  padding: 20px;
+  background-color: #fdfdfd;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-family: 'Georgia', serif;
+  line-height: 1.6;
+}
