@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Community Portal with Bootstrap JS</title>
+
+  <!-- Bootstrap CSS (downloaded) -->
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+</head>
+<body>
+
+  <div class="container mt-5">
+    <h1 class="text-primary">Event Alerts</h1>
+
+    <!-- Example Bootstrap Alert Dismissible -->
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>Reminder!</strong> The music festival is this weekend.
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <!-- Example Button with Collapse -->
+    <p>
+      <a class="btn btn-info" data-bs-toggle="collapse" href="#info" role="button" aria-expanded="false" aria-controls="info">
+        More Info
+      </a>
+    </p>
+    <div class="collapse" id="info">
+      <div class="card card-body">
+        This event is hosted by the local community. Join us for fun and games!
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JavaScript (downloaded bundle includes Popper) -->
+  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
