@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Sign-Up</title>
+  <style>
+    .error {
+      color: red;
+      font-size: 0.9em;
+    }
+    input, select {
+      display: block;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Register for an Event</h2>
+  
+  <form id="eventForm">
+    <label>Name:
+      <input type="text" name="name" placeholder="Your Name" />
+      <span class="error" id="nameError"></span>
+    </label>
+
+    <label>Email:
+      <input type="email" name="email" placeholder="Your Email" />
+      <span class="error" id="emailError"></span>
+    </label>
+
+    <label>Choose Event:
+      <select name="event">
+        <option value="">--Select--</option>
+        <option value="music">Music Fest</option>
+        <option value="tech">Tech Talk</option>
+        <option value="food">Food Carnival</option>
+      </select>
+      <span class="error" id="eventError"></span>
+    </label>
+
+    <button type="submit">Register</button>
+  </form>
+
+  <script src="main.js"></script>
+</body>
+</html>
