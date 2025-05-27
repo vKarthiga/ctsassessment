@@ -1,0 +1,9 @@
+All People:
+Person[name=Alice, age=25]
+Person[name=Bob, age=17]
+Person[name=Charlie, age=30]
+Person[name=Diana, age=15]
+
+Adults (age 18+):
+Person[name=Alice, age=25]
+Person[name=Charlie, age=30]
