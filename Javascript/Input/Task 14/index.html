@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Community Event Portal - jQuery Example</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    .eventCard {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px;
+      width: 200px;
+      display: inline-block;
+      text-align: center;
+    }
+    #responseMessage {
+      display: none;
+      color: green;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Register for an Event</h1>
+
+  <form id="registrationForm">
+    <label for="name">Name:</label><br />
+    <input type="text" id="name" name="name" placeholder="Your full name" /><br /><br />
+
+    <label for="email">Email:</label><br />
+    <input type="email" id="email" name="email" placeholder="Your email" /><br /><br />
+
+    <label for="eventSelect">Select Event:</label><br />
+    <select id="eventSelect" name="eventSelect">
+      <option value="music">Music Festival</option>
+      <option value="workshop">Workshop</option>
+      <option value="meetup">Community Meetup</option>
+    </select><br /><br />
+
+    <button id="registerBtn" type="submit">Register</button>
+  </form>
+
+  <div id="responseMessage"></div>
+
+  <h2>Upcoming Events</h2>
+  <div class="eventCard">Music Festival - July 15</div>
+  <div class="eventCard">Baking Workshop - August 3</div>
+  <div class="eventCard">Community Meetup - September 10</div>
+
+  <script>
+    $(document).ready(function() {
+      // Handle Register button click
+      $('#registerBtn').click(function(event) {
+        event.preventDefault(); // Prevent form submit default behavior
+
+        const name = $('#name').val();
+        const email = $('#email').val();
+
+        if (!name) {
+          alert("Please enter your name.");
+          return;
+        }
+        if (!email) {
+          alert("Please enter your email.");
+          return;
+        }
+
+        // Show a confirmation message with fadeIn/fadeOut
+        $('#responseMessage').text('Registration successful!').fadeIn().delay(2000).fadeOut();
+      });
+
+      // Fade event cards on hover
+      $('.eventCard').hover(
+        function() {
+          $(this).fadeOut(200);
+        },
+        function() {
+          $(this).fadeIn(200);
+        }
+      );
+    });
+  </script>
+
+</body>
+</html>
