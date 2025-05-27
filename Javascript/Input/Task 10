@@ -1,0 +1,29 @@
+// Sample event list
+const events = [
+  { id: 1, name: "Music Fest", category: "music", seats: 20, date: "2025-06-10" },
+  { id: 2, name: "Coding Bootcamp", category: "education", seats: 0, date: "2025-06-05" },
+  { id: 3, name: "Food Carnival", category: "food", seats: 10, date: "2025-06-15" }
+];
+
+// ✅ Default parameters
+function registerEvent(userName = "Guest", eventId) {
+  console.log(`${userName} is registering for event #${eventId}`);
+}
+
+// ✅ Destructuring
+events.forEach(event => {
+  const { name, date, seats } = event;
+  console.log(`📅 ${name} on ${date} has ${seats} seats.`);
+});
+
+// ✅ Spread operator to clone the array before filtering
+const musicEvents = [...events].filter(e => e.category === "music");
+console.log("🎵 Music Events:", musicEvents);
+
+// ✅ let for mutable values
+let totalSeats = 0;
+musicEvents.forEach(({ seats }) => totalSeats += seats);
+console.log("🎟️ Total seats for music events:", totalSeats);
+
+// Test default parameter
+registerEvent(undefined, 1); // Output: Guest is registering for event #1
