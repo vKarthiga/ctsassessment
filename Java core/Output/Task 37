@@ -1,0 +1,25 @@
+Compiled from "SimpleClass.java"
+public class SimpleClass {
+  public SimpleClass();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public void greet();
+    Code:
+       0: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+       3: ldc           #3                  // String Hello from SimpleClass!
+       5: invokevirtual #4                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+       8: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: new           #5                  // class SimpleClass
+       3: dup
+       4: invokespecial #6                  // Method "<init>":()V
+       7: astore_1
+       8: aload_1
+       9: invokevirtual #7                  // Method greet:()V
+      12: return
+}
