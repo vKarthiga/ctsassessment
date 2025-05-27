@@ -1,1 +1,97 @@
+index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Local Community Event Portal</title>
+
+  <!-- Internal CSS -->
+  <style>
+    /* Body styles */
+    body {
+      background-color: #f0f8ff;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Header styles */
+    header {
+      padding: 20px;
+      text-align: center;
+      background-color: #0077cc;
+      color: white;
+    }
+
+    /* Navigation styles */
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #0077cc;
+    }
+
+    /* Main content */
+    .main-section {
+      padding: 20px;
+    }
+  </style>
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header>
+    <h1 style="color: red;">Welcome to the Local Community Event Portal</h1> <!-- Inline Style -->
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#events">Events</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="home" class="main-section">
+    <h2>Home</h2>
+    <p>This is the home section with general information.</p>
+  </section>
+
+  <section id="events" class="main-section">
+    <h2>Events</h2>
+    <p>Explore upcoming community events here.</p>
+  </section>
+
+  <section id="contact" class="main-section">
+    <h2>Contact</h2>
+    <p>Reach out to the council for any queries.</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Local City Council</p>
+  </footer>
+
+</body>
+</html>
+
+styles.css
+
+/* General Styles */
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #eee;
+  color: #555;
+}
+
+/* Main Section Styles */
+.main-section {
+  border: 1px solid #ddd;
+  margin: 10px;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+/* Link Hover Effects */
+nav a:hover {
+  color: #ff6600;
+}
 
